@@ -10,12 +10,6 @@ type model struct {
 	problems []string
 }
 
-func initialModel() model {
-	return model{
-		problems: []string{"Workplace Issues", "Emptiness", "Friendship Issues"},
-	}
-}
-
 func (m model) Init() tea.Cmd {
 	return nil
 }
@@ -44,7 +38,10 @@ func (m model) View() string {
 }
 
 func main() {
-	p := tea.NewProgram(initialModel())
+	p := tea.NewProgram(model{
+		problems: []string{"Workplace Issues", "Emptiness", "Friendship Issues"},
+	})
+
 	if err := p.Start(); err != nil {
 		panic(err)
 	}
